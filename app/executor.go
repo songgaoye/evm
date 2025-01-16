@@ -152,6 +152,10 @@ func (ms msWrapper) CacheWrap() storetypes.CacheWrap {
 	return ms.CacheMultiStore().(storetypes.CacheWrap)
 }
 
+func (ms msWrapper) CacheWrapWithTrace(_ io.Writer, _ storetypes.TraceContext) storetypes.CacheWrap {
+	return ms.CacheWrap()
+}
+
 // GetStoreType returns the type of the store.
 func (ms msWrapper) GetStoreType() storetypes.StoreType {
 	return storetypes.StoreTypeMulti
