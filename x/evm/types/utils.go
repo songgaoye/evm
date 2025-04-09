@@ -76,10 +76,6 @@ func DecodeTxResponses(in []byte) ([]*MsgEthereumTxResponse, error) {
 }
 
 func logsFromTxResponse(dst []*ethtypes.Log, rsp *MsgEthereumTxResponse, blockNumber uint64) []*ethtypes.Log {
-	if len(rsp.Logs) == 0 {
-		return dst
-	}
-
 	if dst == nil {
 		dst = make([]*ethtypes.Log, 0, len(rsp.Logs))
 	}
